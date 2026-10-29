@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: #f3efe7;
+  --color-foreground: #1a1814;
+  --color-surface: #fffcf7;
+  --color-muted: #5f584f;
+  --color-line: #e4d9c8;
+  --color-accent: #1f4d3a;
+  --color-accent-soft: #e6f0ea;
+  --color-terra: #8f4520;
+  --color-correct: #145c32;
+  --color-correct-bg: #e5f4ea;
+  --color-wrong: #8c2f24;
+  --color-wrong-bg: #f8ebe7;
+  --color-star: #8a6116;
+  --color-star-soft: #f8f0df;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  background-image:
+    radial-gradient(900px 420px at -10% -20%, rgba(143, 69, 32, 0.09), transparent 60%),
+    radial-gradient(700px 380px at 110% -10%, rgba(31, 77, 58, 0.1), transparent 55%);
+}
+
+::selection {
+  background: #e7d3b0;
+  color: #1a1814;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.feedback-in {
+  animation: rise 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-in {
+    animation: none;
+  }
 }
